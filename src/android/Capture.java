@@ -437,6 +437,9 @@ public class Capture extends CordovaPlugin {
      */
     private JSONObject createMediaFile(Uri data) {
         File fp = webView.getResourceApi().mapUriToFile(data);
+        if (fp == null) {
+          return null;
+        }
         JSONObject obj = new JSONObject();
 
         Class webViewClass = webView.getClass();
